@@ -30,6 +30,7 @@ login_data = json.loads(login_response.text)
 
 account_id_input = os.environ["account_id"]
 
+account_id_json = json.loads(account_id_input)
 
 signin_url = "https://aliyundrive.pro/api/v1/accounts/{account_id}/signin"
 
@@ -43,7 +44,7 @@ signin_headers = {
 
 # 发送 POST 请求
 signin_responses = []
-for account_id in account_id_input:
+for account_id in account_id_json:
     signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,data=signin_payload)
     signin_responses.append(signin_response)
 
