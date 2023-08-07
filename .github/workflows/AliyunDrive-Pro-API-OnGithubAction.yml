@@ -6,6 +6,7 @@ name: AliyunDrive-Pro-API-OnGithubAction
 on:
   workflow_dispatch:
   repository_dispatch:
+   types: [AliyunDrive-Pro-API-OnGithubAction]
   push:
     branches: 
     - main
