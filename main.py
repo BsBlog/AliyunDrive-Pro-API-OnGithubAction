@@ -54,6 +54,13 @@ for signin_response in signin_responses:
     else:
         # 请求失败
         print("Error: {}".format(signin_response.status_code))
+        print("Try use v2 API")
+        signin_url = "https://aliyundrive.pro/api/v2/accounts/{account_id}/signin"
+        signin_responses = []
+        for account_id in account_id_input:
+            signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,
+                                            data=signin_payload)
+            signin_responses.append(signin_response)
 
 signin_data = json.loads(signin_response.text)
 
