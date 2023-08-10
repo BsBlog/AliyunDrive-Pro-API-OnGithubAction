@@ -30,7 +30,7 @@ login_data = json.loads(login_response.text)
 
 account_id_input = os.environ["account_id"].split(',')
 
-signin_url = "https://aliyundrive.pro/api/v1/accounts/{account_id}/signin"
+signin_url = "https://aliyundrive.pro/api/v2/accounts/{account_id}/signin"
 
 signin_payload = {}
 access_token = login_data["data"]["session"]["access_token"]
@@ -55,7 +55,7 @@ for signin_response in signin_responses:
         # 请求失败
         print("Error: {}".format(signin_response.status_code))
         print("Try use v2 API")
-        signin_url = "https://aliyundrive.pro/api/v2/accounts/{account_id}/signin"
+        signin_url = "https://aliyundrive.pro/api/v1/accounts/{account_id}/signin"
         signin_responses = []
         for account_id in account_id_input:
             signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,data=signin_payload)
