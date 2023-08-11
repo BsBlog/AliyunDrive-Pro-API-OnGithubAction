@@ -50,13 +50,14 @@ async function Singn(login_token){
   fetch("https://aliyundrive.pro/api/v2/accounts/"+ account_id +"/signin", Singn_requestOptions)
   .then(function(response) {
     if(response.status == 200){
-      alert(response.status);
+      alert(response.status + "Succeed");
    }
     else{
       fetch("https://aliyundrive.pro/api/v1/accounts/"+ account_id +"/signin", Singn_requestOptions)
       .then(response => response.json())
       .then(result => {
         console.log(result)
+        alert("Failed, please check the DevTools")
       })
     }
     })
