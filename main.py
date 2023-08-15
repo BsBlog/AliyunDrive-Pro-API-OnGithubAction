@@ -54,7 +54,7 @@ for signin_response in signin_responses:
     else:
         # 请求失败
         print("Error: {}".format(signin_response.status_code))
-        print("Try use v2 API")
+        print("Try use v1 API")
         signin_url = "https://aliyundrive.pro/api/v1/accounts/{account_id}/signin"
         signin_responses = []
         for account_id in account_id_input:
