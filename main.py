@@ -9,8 +9,6 @@ def sha256(text):
     hash_object.update(text.encode('utf-8'))
     return hash_object.hexdigest()
 
-requests.DEFAULT_RETRIES = 999
-
 login_url = "https://aliyundrive.pro/api/v1/auth/login"
 
 email = os.environ["email"]
