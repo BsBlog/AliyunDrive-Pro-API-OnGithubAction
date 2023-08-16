@@ -54,19 +54,16 @@ for signin_response in signin_responses:
     else:
         # 请求失败
         print("Error: {}".format(signin_response.status_code))
-        print("Try use v1 API")
-        signin_url = "https://aliyundrive.pro/api/v1/accounts/{account_id}/signin"
-        signin_responses = []
-        for account_id in account_id_input:
-            signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,data=signin_payload)
-            signin_responses.append(signin_response)
-        for signin_response in signin_responses:
-            if signin_response.status_code == 200:
-                # 请求成功
-                print("Success")
-            else:
-                # 请求失败
+        while True:
+            for account_id in account_id_input:
+                signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,data=signin_payload)
+                signin_responses.append(signin_response)
+            for signin_response in signin_responses:
                 print("Error: {}".format(signin_response.status_code))
+                if signin_response.status_code == 200:
+                    # 请求成功
+                    print("Success")
+                    break
 
 signin_data = json.loads(signin_response.text)
 
