@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import hashlib
+import time
 
 
 def sha256(text):
@@ -57,6 +58,7 @@ for signin_response in signin_responses:
             for account_id in account_id_input:
                 signin_response = requests.post(signin_url.format(account_id=account_id), headers=signin_headers,data=signin_payload)
                 signin_responses.append(signin_response)
+                time.sleep(8)
             for signin_response in signin_responses:
                 print("Error: {}".format(signin_response.status_code))
                 if signin_response.status_code == 200:
