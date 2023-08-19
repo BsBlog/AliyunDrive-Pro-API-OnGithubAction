@@ -18,14 +18,13 @@ jobs:
   Check-in:
 
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
     - uses: actions/checkout@main
     - name: Set up Python
       uses: actions/setup-python@main
       with:
-        python-version: 3.11
+        python-version: 3.12
     - name: "Set up requests"
       run: |
        pip install requests
