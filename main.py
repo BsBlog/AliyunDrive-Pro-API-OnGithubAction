@@ -65,6 +65,7 @@ for signin_response in signin_responses:
                     # 请求成功
                     print("Success")
                     break
+            break
 
 signin_data = json.loads(signin_response.text)
 
