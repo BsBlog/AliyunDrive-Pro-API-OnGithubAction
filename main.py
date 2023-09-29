@@ -19,7 +19,7 @@ password = sha256(password_input)
 login_payload = json.dumps({
     "email": email,
     "password": password
-    "longer": true
+    "longer": "true"
 })
 login_headers = {
     'Content-Type': 'application/json'
